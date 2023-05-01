@@ -9,7 +9,10 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@element-plus/nuxt": "^1.0.4",
     "@types/node": "^18",
-    "nuxt": "^3.4.3"
+    "element-plus": "^2.3.4",
+    "nuxt": "^3.4.3",
+    "sass": "^1.62.1"
   }
 }

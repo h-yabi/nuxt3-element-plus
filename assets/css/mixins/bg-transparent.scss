@@ -1,0 +1,29 @@
+/**
+ * 透明の背景表現
+ */
+@mixin bg-transparent {
+  $light: #ffffff;
+  $dark: #f2f2f2;
+
+  background-color: $light;
+  background-size: 20px 20.05px; // 整数だと隙間が出る
+  background-position: 0 0, 10px 9.98px; // 整数だと隙間が出る
+  background-image: linear-gradient(
+      45deg,
+      $dark 25%,
+      $dark 25%,
+      transparent 25%,
+      transparent 75%,
+      $dark 75%,
+      $dark 75%
+    ),
+    linear-gradient(
+      -135deg,
+      $dark 25%,
+      $dark 25%,
+      transparent 25%,
+      transparent 75%,
+      $dark 75%,
+      $dark 75%
+    );
+}

@@ -1,0 +1,244 @@
+/**
+ * nuxt全体に適用する style
+ */
+@import './variables.scss';
+
+/**
+ * base
+ */
+@font-face {
+  font-family: 'Original Yu Gothic';
+  src: local('Yu Gothic Medium');
+  font-weight: 100;
+}
+@font-face {
+  font-family: 'Original Yu Gothic';
+  src: local('Yu Gothic Medium');
+  font-weight: 200;
+}
+@font-face {
+  font-family: 'Original Yu Gothic';
+  src: local('Yu Gothic Medium');
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'Original Yu Gothic';
+  src: local('Yu Gothic Medium');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Original Yu Gothic';
+  src: local('Yu Gothic Bold');
+  font-weight: bold;
+}
+
+html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Hiragino Sans', 'Noto Sans CJK JP', 'Original Yu Gothic', 'Yu Gothic',
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Sans Emoji';
+  // 'Noto Sans JP',
+
+  background-color: var(--color-ui-page-background);
+  color: var(--color-ui-text-primary);
+
+  // font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: var(--color-ui-primary);
+}
+
+.color-primary {
+  color: var(--color-ui-primary);
+}
+.color-success {
+  color: var(--color-ui-primary);
+}
+.color-info {
+  color: var(--color-ui-info);
+}
+.color-warning {
+  color: var(--color-ui-warning);
+}
+.color-danger {
+  color: var(--color-ui-danger);
+}
+
+/**
+ * override element-ui
+ */
+ .el-header {
+  padding: 0 !important;
+}
+
+.el-color-dropdown {
+  
+  .el-button--text {
+    color: var(--color-ui-text-secondary); // #747676;
+
+    &:hover {
+      color: var(--color-ui-primary); // #43BFA0;
+    }
+  }
+}
+
+.el-form-item {
+  $root : &;
+
+  &__label {
+    font-size: 13px!important;
+    color: var(--color-ui-text-secondary)!important; // #747676!important;
+  }
+
+  &.is-error {
+    #{$root}__label {
+      color: var(--color-ui-danger)!important; // #D45B5B!important;
+    }
+  }
+
+  &__error {
+    font-size: 10px!important;
+  }
+}
+
+// フォーム公開期間設定 PublishSetting 終了時間タイムホイールが見切れるのを阻止
+.el-picker-panel.el-date-range-picker.el-popper.has-time .el-time-panel.el-popper {
+  left: -24px !important;
+}
+
+// messageコンポーネントをoverride
+.el-message {
+  $root : &;
+  box-shadow: $shadow-message;
+  border-color: transparent!important;
+
+  &.is-closable {
+    #{$root}__content{
+      padding-right: 24px!important;
+    }
+    
+  }
+
+  &__content {
+    line-height: 1.6!important;
+
+  }
+}
+
+// messageboxコンポーネントをoverride
+.el-message-box {
+  width: 500px!important;
+
+  .el-message-box--center {
+    padding-bottom: 40px!important;
+  }
+
+  &__header {
+    padding-top: 40px!important;
+    padding-bottom: 20px!important;
+  }
+  &__title {
+    font-size: 18px!important;
+    font-weight: bold!important;
+    display: block!important;
+    text-align: center!important;
+
+    > span {
+      display: block;
+    }
+  }
+  &__status {
+    display: block;
+    display: inline-block!important;
+    margin-bottom: 10px;
+    
+    &[class^="el-icon-"], 
+    &[class*=" el-icon-"] {
+      font-size: 40px!important;
+    }
+
+    &.el-icon-warning-outline,
+    &.el-icon-info {
+      color: var(--color-ui-primary)!important;
+    }
+    &.el-icon-warning {
+      color: var(--color-ui-danger)!important;
+    }
+  }
+  &__close {
+    color : var(--color-ui-text-secondary)!important;
+  }
+  &__message {
+    font-size: 14px!important;
+  }
+  &__btns {
+    padding-top: 15px!important;
+  }
+
+  .color-primary  { color: var(--color-ui-primary);}
+  .color-success  { color: var(--color-ui-primary);}
+  .color-info     { color: var(--color-ui-info);}
+  .color-warning  { color: var(--color-ui-warning);}
+  .color-danger   { color: var(--color-ui-danger);}
+
+  .info {
+    margin-top: 1.5em;
+    padding: 1em;
+    font-size: 12px;
+    color: var(--color-ui-text-primary);
+    border: 1px solid var(--color-ui-border-line);
+    background: var(--color-ui-surface-secondary);
+    text-align: left;
+  }
+
+  .info-danger {
+    margin-top: 1.5em;
+    padding: 1em;
+    font-size: 12px;
+    color: var(--color-ui-danger);
+    border: 1px solid var(--color-ui-danger);
+    background: var(--color-ui-danger-lighter);
+    text-align: left;
+  }
+
+  .back-to-list-link {
+    display: block;
+    font-size: 12px;
+    text-align: center;
+    margin: 20px 0 0;
+  }
+
+  .el-button {
+    min-width: 120px;
+  }
+}
+
+.el-dropdown-menu{
+
+  &__item {
+    &:not(.is-disabled):hover,
+    &:not(.is-disabled):focus {
+      color: currentColor!important;
+      background: rgba(0,0,0,0.05)!important;
+    }
+
+  }
+}

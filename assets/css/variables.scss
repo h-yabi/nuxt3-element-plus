@@ -1,0 +1,179 @@
+/**
+ * color-token
+ */
+// @import './color-token/2.0.0/_color-token.scss';
+
+// Break-point
+$--sm: 600px; // 768 → 600 (#598 breakpointの値をLP側へ統一)
+$--md: 900px; //  992 → 900
+$--lg: 1200px; // 1200 → 1200
+$--xl: 1800px; // 1920 → 1800
+$--is-pc-only: $--md; // スマホ用のレスポンシブ制限
+
+$breakpoints: (
+  xs: 0px,
+  sm: $--sm,
+  md: $--md,
+  lg: $--lg,
+  xl: $--xl,
+  is-pc-only: $--is-pc-only,
+) !default;
+
+/**
+ * color-token では再現できない プロジェクト固有のカラーを定義する
+ * バージョンアップ時に調整が発生する点に注意
+ */
+:root {
+  --color-ui-primary-lighter: var(--color-teal-5);
+  --color-ui-info-lighter: var(--color-turquoise-5);
+  --color-ui-warning-lighter: var(--color-orange-5);
+  --color-ui-danger-lighter: var(--color-red-5);
+  --color-ui-danger-low: #ea6e4a; // warning と danger の中間色(パスワードメーターで使用)
+  --color-ui-card-top-bg-public: var(--color-teal-20); // #B4E5D9
+  --color-ui-card-top-bg-private: var(--color-orange-20); // #FEDBBF
+  --color-ui-card-top-bg-expired: var(--color-red-20); // #EEBDBD
+  --color-ui-card-top-bg-disabled: var(--color-white-100); // #ffffff
+  --color-ui-header-preview-animation-light: #48ccab; // --color-ui-primary から抽出した少し明るい色
+  --color-ui-header-preview-animation-dark: #3fb296; // --color-ui-primary から抽出した少しくらい色
+  --color-ui-preview-code-bg: var(--color-ui-text-primary);
+  --color-ui-editor-side-base: var(
+    --color-ui-page-background
+  ); // or #F7F8F9 → var(--color-ui-page-background)
+  --color-ui-border-line-light: var(--color-gray-alpha-10); // 少し薄い線
+  --color-ui-border-line-element-ui-input: #dcdfe6; // element-uiのinputのborder-colorがhex値しか受け取れないため、そこに合わせる場合に使用 ($--border-color-base: #DCDFE6 !default;)
+  --color-ui-button-type-secondary-surface: var(--color-gray-alpha-7);
+  --color-ui-button-type-secondary-surface-hover: var(--color-gray-alpha-5);
+  --color-ui-modal-for-faq-contents-surface: var(--color-gray-5);
+  --color-ui-btn-negative-surface: var(--color-gray-alpha-20);
+  --color-ui-btn-negative-surface-hover: var(--color-gray-alpha-10);
+  --color-ui-btn-disabled-surface: var(--color-gray-20);
+  --color-ui-btn-disabled-text: var(--color-white-alpha-100);
+  --color-ui-focus-ring-surface-lighter: rgba(
+    67,
+    168,
+    191,
+    0.3
+  ); // --color-turquoise-70 の値から取得
+  --color-ui-plan-sticky-table-head-bg: var(--color-gray-5);
+  --color-ui-sidenav-base: #eceff1;
+}
+
+// z-index (最低 100単位 各コンポーネント内部は 1単位)
+$z-page-loading: 999999;
+$z-modal-frame: 10000; // ModalFrame.vue
+$z-card-for-template-preview: 1000;
+$z-modal-for-faq-contents: 1000;
+$z-header-base: 400; // HeaderBase.vue
+$z-editor-switch: 300; // EditorSwitch.vue
+$z-preview-mock: 200;
+$z-layout-header-main: 100; // LayoutHeaderMain.vue
+
+// margin
+$margin-default: 20px; //各要素の最小単位マージン
+
+// size
+$size-content-wrapper-w: (
+  default: 1060px,
+  full: 100%,
+);
+$size-header-h: 54px;
+$size-global-header-h: 54px;
+$size-global-header-h-sp: 50px;
+$size-plug-cable-line-w: 2px;
+$size-button-with-circle: 54px;
+$size-button-with-square-w: 200px;
+$size-button-with-square-h: 30px;
+$size-button-with-square-r: 6px;
+$size-editor-switch-bar-h: 46px;
+$size-editor-preview-header-h: $size-header-h;
+$size-editor-main-h: calc(
+  100vh - #{$size-header-h} - #{$size-editor-switch-bar-h}
+);
+$size-editor-switch-bar-tabs: $size-editor-switch-bar-h;
+$size-editor-side-w: 320px;
+$size-ediror-side-padding-vertical: 14px * 1.2;
+$size-ediror-side-padding-horizontal: 14px * 1.25;
+$size-editor-side-parts-tabs-h: 60px;
+$size-button-edit: 30px;
+$size-form-mock-inner-wrapper: 564px;
+
+$avatar-uploader: (
+  default: (
+    w: 100px,
+    h: 100px,
+  ),
+);
+
+// shadow
+$shadow-btn-basic: none;
+$shadow-btn-basic-hover: 4px 4px 15px 0px var(--color-gray-alpha-10);
+$shadow-service-icon: 10px 10px 20px rgba(0, 0, 0, 0.16);
+$shadow-card: none; // 2px 2px 10px 0px rgba(27, 43, 39, 0.05)
+$shadow-card-hover: 5px 5px 10px 0px rgba(27, 43, 39, 0.05);
+$shadow-card-focus: 20px 20px 30px 0px rgba(27, 43, 39, 0.16);
+$shadow-card-checkmark: 2px 2px 6px rgba(27, 43, 39, 0.1);
+$shadow-mockframe: 10px 10px 40px rgba(0, 0, 0, 0.25);
+$shadow-btn-edit: 4px 4px 15px rgba(0, 0, 0, 0.25);
+$shadow-message: $shadow-card-hover;
+
+// border
+$border-card-disabled: 1px dashed var(--color-ui-border-line);
+$border-plug-disconnect: $size-plug-cable-line-w dashed
+  var(--color-ui-border-line);
+$border-avatar-uploader-default: $border-card-disabled;
+
+// border-radius
+$border-radius-default: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 16px;
+$border-radius-xl: 24px;
+
+// font-family
+$font-family-code: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+  monospace;
+
+// transition easing
+$easing-ease-out-basic: cubic-bezier(0.03, 0.65, 0.43, 0.89);
+$easing-ease-out-back: cubic-bezier(0.18, 1.77, 0.46, 1.05);
+$easing-ease-in-out-expo: cubic-bezier(0.46, 0.01, 0, 1);
+$easing-sidebar-in: cubic-bezier(0.25, 1.1, 0.46, 1);
+$easing-sidebar-out: cubic-bezier(0.84, 0.06, 0.26, 1);
+$easing-slide-toggle-open: $easing-ease-in-out-expo;
+$easing-slide-toggle-close: cubic-bezier(0.36, 1, 0, 1);
+
+// time
+$time-component-transition: 0.4s; // plugins/ui-transition-mode.jsの sleep時間と値を揃える
+
+/**
+ * mixins
+ */
+@import './mixins/bg-transparent.scss'; //透明表現の背景パターン
+@import './mixins/mq.scss'; //レスポンシブコーディング用メディアクエリーラッパー
+
+/**
+ * Tayori user side variables
+ * 
+ * USERサイド（表側）で表示するコンポーネント群の色等を管理。 EditorMainParts 配下で使用
+ * prefix $us- で定義
+ */
+$us-color-util: #43a9bf; // form機能のハイライト色
+$us-color-input-focus-base: #f6fbfc; // 各パーツ編集フォーカス時の背景色（透けても大丈夫にするためにアルファが無い値を定義）
+$us-color-danger: #d45b5b; // error警告
+$us-color-required: #ff3366; // 必須項目色
+$us-color-input-preview-border: #d4d9e2; //inputのボーダー
+$us-color-input-preview-border-focus: #8c96aa; //フォーカス時のボーダー
+$us-color-input-preview-bg: #fefefe; //inputの背景
+$us-color-input-preview-prepend-bg: #eeeeee; // inputに合体するパーツの背景
+$us-color-input-preview-prepend-text: #555555; // inputに合体するパーツの文字色
+$us-color-input-preview-placeholder-text: #acb1be; // 通常時のプレースホルダー色
+$us-color-input-preview-placeholder-placeholder: lighten(
+  $us-color-input-preview-placeholder-text,
+  15%
+); //プレースホルダーが無いときのプレースホルダー色
+$us-color-input-indicator-base: #ffffff; // numberボタン, radio, checkbox等のインジケーターのベース色
+$us-color-input-indicator-border: #cccccc; // numberボタン, radio, checkbox等のボーダー
+$us-color-faq-content-surface: #ffffff; // faqのコンテンツの表面色
+$us-color-description-text: #808080; //補足説明文章のテキスト色
+$us-font-size-base: 14px; //全体のベースフォントサイズ
+$us-font-famiry-base: 'Arial'; //フォントファミリーを統一
+$us-font-famiry-required: 'Roboto'; //必須マークのフォントファミリー

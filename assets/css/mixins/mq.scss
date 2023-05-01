@@ -1,0 +1,17 @@
+/**
+ * 参 : 以下フレームワークを参考 
+ * https://github.com/rm-labo/mq-scss
+ * 
+ */
+$mq-breakpoints: (
+  xs: map-get($breakpoints, xs),
+  sm: map-get($breakpoints, sm),
+  md: map-get($breakpoints, md),
+  lg: map-get($breakpoints, lg),
+  xl: map-get($breakpoints, xl),
+  is-pc-only: map-get($breakpoints, is-pc-only),
+);
+
+$mq-breakpoints-default-key: 'md';
+
+// @import '../../node_modules/@rm-labo/mq-scss/_mq.scss';

@@ -1,0 +1,34 @@
+$-colors: (
+  'white': #FFFFFF, // COLOR-TOKEN: --color-ui-surface-primary or --color-ui-text-emphasis-inverse
+  'primary': (
+    'base': #1AAD90, // COLOR-TOKEN: --color-ui-primary
+  ),
+  'success': (
+    'base': #1AAD90, // COLOR-TOKEN: --color-ui-primary
+  ),
+  'warning': (
+    'base': #ee8c47, // COLOR-TOKEN: --color-ui-warning
+  ),
+  'danger': (
+    'base': #e6504d, // COLOR-TOKEN: --color-ui-danger
+  ),
+  'info': (
+    'base': #23a7c8, // COLOR-TOKEN: --color-ui-info
+  ),
+);
+
+$-text-color: (
+  'primary': #212D31, // COLOR-TOKEN: --color-gray-90
+  'regular': #212D31, // COLOR-TOKEN: --color-gray-90
+  'secondary': #6B7376, // COLOR-TOKEN: --color-gray-60
+);
+
+$-border-radius: (
+  'base': 6px,
+);
+
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
+  $colors: $-colors,
+  $text-color: $-text-color,
+  $border-radius: $-border-radius,
+);
