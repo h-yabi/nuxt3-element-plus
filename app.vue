@@ -3,6 +3,7 @@
   <ElButton :icon="ElIconEditPen" type="success">button</ElButton>
   <LazyElButton type="warning">lazy button</LazyElButton>
   <p>test</p>
+  <MyComponent />
 </template>
 
 <style lang="scss">
